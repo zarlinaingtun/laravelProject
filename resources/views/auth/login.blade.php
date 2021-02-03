@@ -41,6 +41,7 @@
         <!-- Register -->
         <p>
           <a href="{{route('register')}}">Register</a>
+         
         </p>
   
        
