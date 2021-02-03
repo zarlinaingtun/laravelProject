@@ -10,4 +10,7 @@ class PageController extends Controller
     function index() {
         return view('index');
     }
+    function createPost(){
+        return view('user.createPost');
+    }
 }

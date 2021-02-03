@@ -53,7 +53,7 @@
 </div>
 <div class="col-md-4">
 <!-- Card -->
-<   div class="card my-3">
+<div class="card my-3">
     <!-- Card image -->
     <div class="view overlay">
       <img class="card-img-top" height=250px src="{{asset('images/food3.jpg')}}"
