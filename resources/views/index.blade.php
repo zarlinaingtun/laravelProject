@@ -29,6 +29,7 @@
   </div>
   <!-- Card -->
 </div>
+
 <div class="col-md-4">
 <div class="card my-3">
     <!-- Card image -->

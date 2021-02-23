@@ -18,8 +18,9 @@ use Illuminate\Support\Facades\Route;
 //home
 Route::get('/',[PageController::class,'index'])->name("home");
 //user
-Route::get('/user/createPost',[PageController::class,"createPost"])->name("createPost");
-
+Route::get('/user/createPost',[PageController::class,"createPost"])->name("createPost");//create our post
+Route::get('/user/userProfile',[PageController::class,"userProfile"])->name("userProfile");//our profile
+Route::get('user/contactUs',[PageController::class,"contactUs"])->name("contactUs");//contact page
 // authentication
 Route::get('/login',[AuthController::class,'login'] )->name("login");
 Route::get('/register',[AuthController::class,'register'])->name("register");

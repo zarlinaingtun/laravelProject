@@ -15,7 +15,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
 
 {{-- custom css --}}
-<link rel="stylesheet" href={{asset('css/style.css')}}>
+<link href={{asset('css/style.css')}} rel="stylesheet" type="text/css" >
 </head>
 
 <body>
@@ -41,7 +41,7 @@
         <a class="nav-link" href="#">Admin Control</a>
       </li>
          <li class="nav-item">
-        <a class="nav-link" href="#">Contact Us</a>
+        <a class="nav-link" href="{{route('contactUs')}}">Contact Us</a>
       </li>
       
     </ul>
@@ -54,7 +54,7 @@
         </a>
         <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
           aria-labelledby="navbarDropdownMenuLink-55">
-          <a class="dropdown-item" href="#">User Profile</a>
+          <a class="dropdown-item" href="{{route('userProfile')}}">User Profile</a>
           <a class="dropdown-item" href="#">Logout</a>
         </div>
       </li>

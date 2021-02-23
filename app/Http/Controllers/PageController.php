@@ -13,4 +13,10 @@ class PageController extends Controller
     function createPost(){
         return view('user.createPost');
     }
+    function userProfile(){
+        return view('user.userProfile');
+    }
+    function contactUs(){
+        return view('user.contactUs');
+    }
 }

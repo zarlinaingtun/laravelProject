@@ -2,7 +2,7 @@
 @section("content")
     <div class="container">
         <div class="col-md-4 offset-4 mt-5">
-            <!-- Material form register -->
+           
 <div class="card">
 
     <h5 class="card-header pink white-text text-center py-4">
@@ -34,6 +34,7 @@
                 <label for="materialRegisterFormPhone">Password</label>
               
             </div>
+            <!-- Upload Profile -->
             <p>Select Your Profile</p>
             <div class="md-form">
                 <input type="file" id="materialRegisterFormPhone" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock"> 
