@@ -5,6 +5,7 @@
     <div class="row">
         <div class="col-md-6">
             <!-- map here -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63357720.9962692!2d162.15935287770182!3d59.2109884060223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b857628235d%3A0xcdd8aef709a2b520!2sTokyo!5e0!3m2!1sen!2sjp!4v1614097851334!5m2!1sen!2sjp" width="600" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
         <div class="col-md-6">
             <!-- form -->

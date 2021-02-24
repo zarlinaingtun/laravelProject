@@ -13,7 +13,8 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
 <!-- Material Design Bootstrap -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
-
+{{-- toastr cdn css --}}
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css">
 {{-- custom css --}}
 <link href={{asset('css/style.css')}} rel="stylesheet" type="text/css" >
 </head>
@@ -21,7 +22,7 @@
 <body>
 {{-- Navigation Bar --}}
 <!--Navbar -->
-<nav class="mb-1 navbar navbar-expand-lg navbar-dark pink lighten-1">
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark pink lighten-1 sticky-top">
   <a class="navbar-brand" href="{{route('home')}}">Social App</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
     aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,5 +72,13 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+{{-- toatr cdn js --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+<script>
+@if(Session('message'))
+let message="{{Session('message')}}";
+toastr.info("message");
+@endif
+</script>
 </body>
 </html>

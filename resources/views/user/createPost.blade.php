@@ -3,7 +3,8 @@
 <div class="container">
     <h1 class="my-3">Create Post</h1>
  <!-- add post form    -->
-<form class="text-center border border-light p-5"  action="#!" enctype="multipart/form-data">
+<form action="{{route('post')}}" method="post" class="border border-light p-5" enctype="multipart/form-data">
+@csrf
     <label for="">Title</label>   
     <input type="text" id="defaultLoginFormTitle" class="form-control mb-4" >
     <label for="defaultLoginFormPhoto">Photo</label>

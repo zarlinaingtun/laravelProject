@@ -19,4 +19,7 @@ class PageController extends Controller
     function contactUs(){
         return view('user.contactUs');
     }
+    function post(){
+        return redirect()->route("home")->with("message","added post");
+    }
 }
