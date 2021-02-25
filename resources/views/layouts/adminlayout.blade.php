@@ -63,7 +63,24 @@
   </div>
 </nav>
 <!--/.Navbar -->
-@yield("content")
+<!-- layouts -->
+<div class="container-fluid my-2">
+    <div class="row">
+        <div class="col-md-4">
+            <!-- layout1 -->
+            <ul class="list-group">
+                <li class="list-group-item"><a href="{{route("admin.manage_premium_users")}}">Manage Premium User</a></li>
+                <li class="list-group-item"><a href="{{route("admin.contact_messages")}}">Contact Messages</a></li>
+                
+              </ul>
+        </div>
+        <div class="col-md-8">
+            <!-- layout 2(dynamic layout) -->
+            @yield("content")
+        </div>
+    </div>
+</div>
+
 <!-- JQuery -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!-- Bootstrap tooltips -->
