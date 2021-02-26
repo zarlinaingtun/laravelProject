@@ -79,6 +79,11 @@
 let message="{{Session('message')}}";
 toastr.info("message");
 @endif
+@if(Session('registersms'))
+let message="{{Session('registersms')}}";
+toastr.info(message);
+@endif
+
 </script>
 </body>
 </html>

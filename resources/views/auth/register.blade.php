@@ -13,31 +13,42 @@
     <div class="card-body px-lg-5 pt-0">
 
         <!-- Form -->
-        <form class="text-center" style="color: #757575;" action="#!">
-
+        <form action="{{route("post_register")}}" method="post" class="text-center" style="color: #757575;" action="#!">
+        @csrf
             <!-- Username -->
             <div class="md-form mt-3">
-                <input type="email" id="materialRegisterFormEmail" class="form-control">
+                <input type="text" name="username" id="materialRegisterFormEmail" class="form-control">
                 <label for="materialRegisterFormEmail">Username</label>
+                @error('username')
+                <p class="text-danger">{{$message}}</p>
+                @enderror
             </div>
 
             <!-- Email -->
             <div class="md-form">
-                <input type="password" id="materialRegisterFormPassword" class="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock">
+                <input type="email" name="email" id="materialRegisterFormPassword" class="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock">
                 <label for="materialRegisterFormPassword">Email</label>
+               @error('email')
+                <p class="text-danger">{{$message}}</p>
+                @enderror
                 
             </div>
 
             <!-- Password -->
             <div class="md-form">
-                <input type="password" id="materialRegisterFormPhone" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock">
+                <input type="password" name="password" id="materialRegisterFormPhone" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock">
                 <label for="materialRegisterFormPhone">Password</label>
-              
+              @error('password')
+                <p class="text-danger">{{$message}}</p>
+                @enderror
             </div>
             <!-- Upload Profile -->
             <p>Select Your Profile</p>
             <div class="md-form">
-                <input type="file" id="materialRegisterFormPhone" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock"> 
+                <input type="file" name="image" id="materialRegisterFormPhone" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock"> 
+            @error('image')
+                <p class="text-danger">{{$message}}</p>
+                @enderror
             </div>
             
 
