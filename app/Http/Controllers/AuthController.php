@@ -26,12 +26,17 @@ class AuthController extends Controller
         ]);
        
         if($validation)//validation true
-        {   //save to database
+        {   //$validation->associated array type nae data par lar ml 
 
-            //$validation->associated array type nae data par lar ml 
+            $image=request('image');//image file win lar ml //move to public path
+            $image_name=uniqid()."_".$image->getClientOriginalName();//get user's input image's name //save to database
+            
+            //move image file to public path,move(path,name)
+            $image->move(public_path('/ourimage/profiles'),$image_name);
+            
             return redirect()->route("home")->with("registersms","Successfully Register! Welcome From Our Social App");
         }
-        else//validation false
+        else//validation false//$validation=null \
         {         
             return back()->withErrors($validation);
         }
