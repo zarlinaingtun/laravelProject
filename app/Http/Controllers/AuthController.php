@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
@@ -12,6 +13,37 @@ class AuthController extends Controller
     function login() {
         return view('auth.login');
     }
+    function post_login(){
+       //validate our input field
+            $validation=request()->validate([
+                "email"=>"required",
+                "password"=>"required",
+            ]);
+       //if validation success
+       if($validation){
+           //auth our input field
+          $auth=Auth::attempt(["email"=>$validation['email'],"password"=>$validation['password']]);
+           //if auth is success
+           if($auth){
+               //go to home page
+               return redirect()->route("home")->with("registersms","Successfully Login!Welcome from our social app");
+
+           }
+           //else auth is failed
+           else{
+               //go back login page with auth failed error
+               return back()->with('autherr',"Authentication Failed!Try Again");
+               
+           }
+       
+     }
+       //else validation fail
+       else{
+           //go back login page withErrors
+           return back()->withErrors($validation);
+       }
+    }
+
     //register
     function register() {
         return view('auth.register');
@@ -38,6 +70,7 @@ class AuthController extends Controller
             $image->move(public_path('/ourimage/profiles'),$image_name);
             
             //save to database
+            $username=$validation['username'];
             $user=new User();
             $password=$validation['password'];
             $user->name=$validation['username'];
@@ -45,8 +78,8 @@ class AuthController extends Controller
             $user->password=Hash::make($password);
             $user->image=$image_name;
             $user->save();
-
-            return redirect()->route("home")->with("registersms","Successfully Register! Welcome From Our Social App");
+             
+            return redirect()->route("home")->with("registersms","Successfully Register! $username Welcome From Our Social App");
         }
         else//validation false//$validation=null \
         {         

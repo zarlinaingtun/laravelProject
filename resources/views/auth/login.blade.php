@@ -9,23 +9,33 @@
     <h5 class="card-header pink white-text text-center py-4">
       <strong>Sign in</strong>
     </h5>
-  
+    @if(Session('autherr'))
+    <div class="alert alert-danger">
+      <p align="center">{{Session('autherr')}}</p>
+    </div>
+    @endif
     <!--Card content-->
     <div class="card-body px-lg-5 pt-0">
   
       <!-- Form -->
-      <form class="text-center" style="color: #757575;" action="#!">
-  
+      <form action="{{route('post_login')}}" method="post" class="text-center" style="color: #757575;" >
+  @csrf
         <!-- Email -->
         <div class="md-form">
-          <input type="email" id="materialLoginFormEmail" class="form-control">
+          <input type="email" name="email" id="materialLoginFormEmail" class="form-control">
           <label for="materialLoginFormEmail">E-mail</label>
+          @error('email')
+          <p class="text-danger">{{$message}}</p>
+          @enderror
         </div>
   
         <!-- Password -->
         <div class="md-form">
-          <input type="password" id="materialLoginFormPassword" class="form-control">
+          <input type="password" name="password" id="materialLoginFormPassword" class="form-control">
           <label for="materialLoginFormPassword">Password</label>
+           @error('password')
+          <p class="text-danger">{{$message}}</p>
+          @enderror
         </div>
   
      
