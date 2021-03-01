@@ -68,7 +68,7 @@ class AuthController extends Controller
             //asfsf123_secreenshot.jpg,aser3dj_secreenshot.jpg
 
             //move image file to public path,move(path,name)
-            $image->move(public_path('/ourimage/profiles'),$image_name);
+            $image->move(public_path('/images/profiles'),$image_name);
             
             //save to database
             $username=$validation['username'];
@@ -78,9 +78,12 @@ class AuthController extends Controller
             $user->email=$validation['email'];
             $user->password=Hash::make($password);
             $user->image=$image_name;
+            //take 1 or 2s to save data in database
             $user->save();
-             
-            return redirect()->route("home")->with("registersms","Successfully Register. $username! Welcome From Our Social App");
+             if(Auth::attempt(["email"=>$validation['email'],"password"=>$validation['password']]))
+             {
+                 return redirect()->route("home")->with("registersms","Successfully Register. $username! Welcome From Our Social App");
+             }
         }
         else//validation false//$validation=null \
         {         

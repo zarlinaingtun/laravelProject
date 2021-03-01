@@ -51,10 +51,11 @@
       <li class="nav-item avatar dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
-         
+        <img src="{{asset('images/profiles/'.auth()->user()->image)}}" alt="myprofile" class="rounded-circle z-depth-0" height="40px" width="40px"/>
         </a>
         <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
           aria-labelledby="navbarDropdownMenuLink-55">
+          <a class="dropdown-item" href="{{route('userProfile')}}">{{auth()->user()->name}}</a>
           <a class="dropdown-item" href="{{route('userProfile')}}">User Profile</a>
           <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
         </div>

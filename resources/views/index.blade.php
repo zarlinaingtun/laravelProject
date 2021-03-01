@@ -1,6 +1,6 @@
 @extends("layouts.pagelayout")
 @section('content')
-<h1>{{auth()->user()->name}}</h1>
+{{-- <h1>{{auth()->user()->name}}</h1> --}}
 <!-- background image -->
     <header></header>
  
