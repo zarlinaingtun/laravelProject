@@ -19,7 +19,7 @@
   
       <!-- Form -->
       <form action="{{route('post_login')}}" method="post" class="text-center" style="color: #757575;" >
-  @csrf
+       @csrf
         <!-- Email -->
         <div class="md-form">
           <input type="email" name="email" id="materialLoginFormEmail" class="form-control">

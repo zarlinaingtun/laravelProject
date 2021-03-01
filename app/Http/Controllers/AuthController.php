@@ -26,7 +26,8 @@ class AuthController extends Controller
            //if auth is success
            if($auth){
                //go to home page
-               return redirect()->route("home")->with("registersms","Successfully Login!Welcome from our social app");
+               $loginuser=auth()->user()->name;
+               return redirect()->route("home")->with("registersms","Successfully Login. $loginuser! Welcome from our social app");
 
            }
            //else auth is failed
@@ -79,11 +80,18 @@ class AuthController extends Controller
             $user->image=$image_name;
             $user->save();
              
-            return redirect()->route("home")->with("registersms","Successfully Register! $username Welcome From Our Social App");
+            return redirect()->route("home")->with("registersms","Successfully Register. $username! Welcome From Our Social App");
         }
         else//validation false//$validation=null \
         {         
             return back()->withErrors($validation);
         }
     }
+
+    //logout
+    function logout(){
+        Auth::logout();
+        return redirect()->route('login');
+    }
+  
 }

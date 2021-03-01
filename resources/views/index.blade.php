@@ -1,8 +1,9 @@
 @extends("layouts.pagelayout")
 @section('content')
+<h1>{{auth()->user()->name}}</h1>
 <!-- background image -->
     <header></header>
-   
+ 
 {{-- all posts --}}
 <div class="container">
  <h1 class="mt-3">All Posts</h1>

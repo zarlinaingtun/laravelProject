@@ -15,22 +15,35 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::middleware('auth')->group(function(){
+    //home
+    Route::get('/',[PageController::class,'index'])->name("home");
+    //user
+    Route::get('/user/createPost',[PageController::class,"createPost"])->name("createPost");//create our post
+    Route::post('/user/createPost',[PageController::class,"post"])->name("post");//post our post into home page
+    Route::get('/user/userProfile',[PageController::class,"userProfile"])->name("userProfile");//our profile
+    Route::get('/user/contactUs',[PageController::class,"contactUs"])->name("contactUs");//contact page
+    //admin
+    Route::get('/admin/index',[AdminController::class,"index"])->name("admin.home");
+    Route::get('/admin/manage_premium_users',[AdminController::class,"manage_premium_users"])->name("admin.manage_premium_users");
+    Route::get('/admin/contact_messages',[AdminController::class,"contact_messages"])->name("admin.contact_messages");
+    //logout
+    Route::get('/logout',[AuthController::class,"logout"])->name("logout");
+});
 
-//home
-Route::get('/',[PageController::class,'index'])->name("home");
-//user
-Route::get('/user/createPost',[PageController::class,"createPost"])->name("createPost");//create our post
-Route::post('/user/createPost',[PageController::class,"post"])->name("post");//post our post into home page
-Route::get('/user/userProfile',[PageController::class,"userProfile"])->name("userProfile");//our profile
-Route::get('/user/contactUs',[PageController::class,"contactUs"])->name("contactUs");//contact page
-//admin
-Route::get('/admin/index',[AdminController::class,"index"])->name("admin.home");
-Route::get('/admin/manage_premium_users',[AdminController::class,"manage_premium_users"])->name("admin.manage_premium_users");
-Route::get('/admin/contact_messages',[AdminController::class,"contact_messages"])->name("admin.contact_messages");
+
+
+
 // authentication
-Route::get('/login',[AuthController::class,'login'] )->name("login");
-Route::post('/login',[AuthController::class,'post_login'])->name("post_login");
-Route::get('/register',[AuthController::class,'register'])->name("register");
-Route::post('/register',[AuthController::class,"post_register"])->name("post_register");
+Route::middleware('notloginuser')->group(function(){
+    Route::get('/login',[AuthController::class,'login'] )->name("login");
+    Route::post('/login',[AuthController::class,'post_login'])->name("post_login");
+    Route::get('/register',[AuthController::class,'register'])->name("register");
+    Route::post('/register',[AuthController::class,"post_register"])->name("post_register");
+ 
+});
+
+
+
 
 
