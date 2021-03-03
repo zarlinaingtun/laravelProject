@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -10,7 +11,8 @@ class PageController extends Controller
 {
     //index
     function index() {
-        return view('index');
+        $posts=Post::all();
+        return view('index',["posts"=>$posts]);
     }
 
     //post
@@ -34,7 +36,7 @@ class PageController extends Controller
         // dd($name,$email,$image,$old_password,$new_password);
         $id=auth()->user()->id;
         $current_user=User::find($id);
-        //if user is not select image and not changed password(add name and email to current user's id)
+        
        
         $validation=request()->validate([
             "name"=>"required",
@@ -43,6 +45,7 @@ class PageController extends Controller
       
        //Validation is success
         if($validation){
+            //if user is not select image and not changed password(add name and email to current user's id)
             $current_user->name=$name;
             $current_user->email=$email;
             $current_user->update();

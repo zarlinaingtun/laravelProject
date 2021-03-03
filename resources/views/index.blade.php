@@ -9,7 +9,8 @@
  <h1 class="mt-3">All Posts</h1>
 <div class="row">
      {{-- range(1,8)->[1,2,3,4,5,6,7,8] include 1 and 8b--}}
-     @foreach (range(1,8) as $index)
+     {{-- @foreach (range(1,8) as $index) --}}
+     @foreach ($posts as $post)
      {{-- All Post --}}
   <div class="col-md-4">
   <div class="card my-3">
@@ -23,10 +24,9 @@
     <div class="card-body">
   
       <!-- Title -->
-      <h4 class="card-title">Food1</h4>
+      <h4 class="card-title">{{$post->title}}</h4>
       <!-- Text -->
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-        content.</p>
+      <p class="card-text">{{$post->content}}</p>
       <!-- Button -->
       <a href="#" class="btn white-text pink">See more</a>
     </div>
