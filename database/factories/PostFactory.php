@@ -24,7 +24,7 @@ class PostFactory extends Factory
     {
         return [
             "user_id" => User::factory(),//22/23/24 //create new user and get this user's id
-            "title"=>$this->faker->sentence,
+            "title"=>$this->faker->sentence,//column=>data
             "image"=>$this->faker->sentence,
             "content"=>$this->faker->sentence,
         ];

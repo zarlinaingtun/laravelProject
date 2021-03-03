@@ -78,7 +78,7 @@
 <script>
 @if(Session('message'))
 let message="{{Session('message')}}";
-toastr.info("message");
+toastr.info(message);
 @endif
 @if(Session('registersms'))
 let message="{{Session('registersms')}}";

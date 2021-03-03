@@ -16,7 +16,7 @@
   <div class="card my-3">
     <!-- Card image -->
     <div class="view overlay">
-      <img class="card-img-top"  height=250px src="{{asset('images/food1.jpg')}}"
+      <img class="card-img-top"  height=250px src="{{asset('images/postPhotos/'.$post->image)}}"
         alt="Card image cap">
     </div>
   

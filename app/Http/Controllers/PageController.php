@@ -11,7 +11,7 @@ class PageController extends Controller
 {
     //index
     function index() {
-        $posts=Post::all();
+        $posts=Post::latest()->get();//id_20-id_1(revert select data from database)
         return view('index',["posts"=>$posts]);
     }
 
@@ -20,7 +20,37 @@ class PageController extends Controller
         return view('user.createPost');
     }
     function post(){
-        return redirect()->route("home")->with("message","added post");
+        $validation=request()->validate([
+            "title"=>"required",
+            "image"=>"required",
+            "content"=>"required",
+        ]);
+
+        if($validation){
+            $title=request('title');
+            $image=request('image');//file
+            $content=request('content');
+
+            //save data to database
+            $post=new Post();//connect to posts_table using Post eloquent model
+            $post->user_id=auth()->user()->id;
+            $post->title=$title;
+            //image
+            //1.move file to public path
+            $imageName=uniqid().'_'.$image->getClientOriginalName();
+            $image->move(public_path('images/postPhotos/'),$imageName);
+            //2.save image name to db of posts_table's image col
+            $post->image=$imageName;
+            $post->content=$content;
+            $post->save();
+
+            return redirect()->route("home")->with("message","added post");
+        }
+        else{
+            //fail validation 
+            return back()->withErrors($validation);
+        }
+      
     }
 
     //userProfile
