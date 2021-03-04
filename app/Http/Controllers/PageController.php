@@ -19,11 +19,22 @@ class PageController extends Controller
     function createPost(){
         return view('user.createPost');
     }
-    //show seemorePostById
+    //show seemorepost  by Id
     function seemorePostById($id){
-        $post=Post::find($id);
+        $post=Post::find($id);//post
         return view('user.seemorePost',['post'=>$post]);
     }
+    //delete post by id
+    function deletePost($id){
+       //get post data by id
+       $delete_post=Post::find($id);
+       //delete that post
+       $delete_post->delete();
+       //return page
+       return redirect()->route('home')->with('message',"deleted post");
+
+    }
+
     function post(){
         $validation=request()->validate([
             "title"=>"required",

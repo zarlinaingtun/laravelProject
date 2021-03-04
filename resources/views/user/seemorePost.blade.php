@@ -8,7 +8,7 @@
     <p>{{$post->content}}</p>
     <div align="center">
     <a href="#" class="btn btn-success">Edit Post</a>
-    <a href="#" class="btn btn-danger">Delete Post</a>
+    <a href="{{route('deletePost',$post->id)}}" class="btn btn-danger">Delete Post</a>
     </div>
 </div>
 @endsection
