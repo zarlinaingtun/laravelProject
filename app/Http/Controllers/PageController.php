@@ -19,6 +19,11 @@ class PageController extends Controller
     function createPost(){
         return view('user.createPost');
     }
+    //show seemorePostById
+    function seemorePostById($id){
+        $post=Post::find($id);
+        return view('user.seemorePost',['post'=>$post]);
+    }
     function post(){
         $validation=request()->validate([
             "title"=>"required",

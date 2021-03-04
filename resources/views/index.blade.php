@@ -25,10 +25,8 @@
   
       <!-- Title -->
       <h4 class="card-title">{{$post->title}}</h4>
-      <!-- Text -->
-      <p class="card-text">{{$post->content}}</p>
       <!-- Button -->
-      <a href="#" class="btn white-text pink">See more</a>
+      <a href="{{route("seemorePostById",$post->id)}}" class="btn white-text pink">See more</a>
     </div>
   </div>
 </div> 
@@ -40,3 +38,4 @@
 @endsection
 </body>
 </html>
+
