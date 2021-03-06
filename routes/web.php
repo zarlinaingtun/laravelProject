@@ -23,6 +23,8 @@ Route::middleware('auth')->group(function(){
     Route::post('/user/createPost',[PageController::class,"post"])->name("post");//post our post into home page
     Route::get('/posts/{id}',[PageController::class,"seemorePostById"])->name("seemorePostById");//for Seemore post page(show post by id)
     Route::get('/posts/delete/{id}',[PageController::class,"deletePost"])->name("deletePost");//delete post by id
+    Route::get('/posts/edit/{id}',[PageController::class,"editPost"])->name("editPost");//edit post page by id
+    Route::post('/posts/update/{id}',[PageController::class,"updatePost"])->name("updatePost");//update post by id
     Route::get('/user/userProfile',[PageController::class,"userProfile"])->name("userProfile");//our profile
     Route::post('/user/userProfile',[PageController::class,"post_userProfile"])->name("post_userProfile");
     Route::get('/user/contactUs',[PageController::class,"contactUs"])->name("contactUs");//contact page

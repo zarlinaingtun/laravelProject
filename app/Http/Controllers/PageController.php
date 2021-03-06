@@ -19,22 +19,6 @@ class PageController extends Controller
     function createPost(){
         return view('user.createPost');
     }
-    //show seemorepost  by Id
-    function seemorePostById($id){
-        $post=Post::find($id);//post
-        return view('user.seemorePost',['post'=>$post]);
-    }
-    //delete post by id
-    function deletePost($id){
-       //get post data by id
-       $delete_post=Post::find($id);
-       //delete that post
-       $delete_post->delete();
-       //return page
-       return redirect()->route('home')->with('message',"deleted post");
-
-    }
-
     function post(){
         $validation=request()->validate([
             "title"=>"required",
@@ -68,6 +52,56 @@ class PageController extends Controller
         }
       
     }
+    //show seemorepost  by id
+    function seemorePostById($id){
+        $post=Post::find($id);//post
+        return view('user.seemorePost',['post'=>$post]);
+    }
+    //delete post by id
+    function deletePost($id){
+       //get post data by id
+       $delete_post=Post::find($id);
+       //delete that post
+       $delete_post->delete();
+       //return page
+       return redirect()->route('home')->with('message',"deleted post");
+
+    }
+    //edit post by id
+    function editPost($id){
+       $update_data=Post::find($id);
+    //    dd($update_data);
+    
+       return view('user.editPost',["update_data"=>$update_data]);
+    }
+    //update post by id
+    function updatePost($id){
+        //get input data from edit post blade
+        $title=request('title');
+        $image=request('image');
+        $content=request('content');
+
+       
+        //update data in db(require update id)
+        $updateData=Post::find($id);
+        $updateData->title=$title;
+        $updateData->content=$content;
+
+        if($image){
+            //move image file to public path
+            $imageName=uniqid().'_'.$image->getClientOriginalName();
+            $image->move(public_path('images/postPhotos'),$imageName);
+            //image name to db
+            $updateData->image=$imageName;
+        }
+        $updateData->update();
+        //return back
+        return back()->with('message',"updated post");
+
+        
+    }
+
+  
 
     //userProfile
     function userProfile(){
