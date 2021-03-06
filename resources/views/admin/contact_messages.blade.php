@@ -13,14 +13,17 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-       <td>1</td>
-      <td>Mg Mg</td>
-      <td>mgmg@gmail.com</td>
-      <td>Hello Admin</td>
+  @foreach ($messages as $message )
+      <tr>
+      <td>{{$message->id}}</td>
+      <td>{{$message->username}}</td>
+      <td>{{$message->email}}</td>
+      <td>{{$message->messages}}</td>
       <td><button class="btn btn-sm btn-success">Update</button></td>
       <td><button class="btn btn-sm btn-danger">Delete</button></td>
-    </tr>
+    </tr> 
+  @endforeach
+ 
 
   </tbody>
 </table>
