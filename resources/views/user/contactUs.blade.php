@@ -1,5 +1,4 @@
-@extends('layouts.pagelayout')
-@section('content')
+<x-pagelayout>
 <div class="container-fluid">
     <h1 class="my-3">Contact</h1>
     <div class="row">
@@ -49,4 +48,4 @@
 </div>
 
 
-@endsection
+</x-pagelayout>

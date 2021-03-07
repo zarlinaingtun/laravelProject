@@ -1,5 +1,4 @@
-@extends('layouts.pagelayout')
-@section('content')
+<x-pagelayout>
 <div class="container">
     <h1 class="my-3">Edit Form</h1>
  <!-- add post form    -->
@@ -26,7 +25,7 @@
 
 </div>
 
-@endsection
+</x-pagelayout>
 
 
 

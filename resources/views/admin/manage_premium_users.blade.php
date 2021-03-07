@@ -1,5 +1,4 @@
-@extends("layouts.adminlayout")
-@section("content")
+<x-adminlayout>
 <h1>Manage_premium_users Page</h1>
 {{-- Table --}}
 <table class="table table-hover mt-2">
@@ -27,4 +26,4 @@
 
   </tbody>
 </table>
-@endsection
+</x-adminlayout>

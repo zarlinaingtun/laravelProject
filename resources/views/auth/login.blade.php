@@ -1,5 +1,4 @@
-@extends("layouts.authlayout")
-@section("content")
+<x-authlayout>
     
     <div class="container">
         <div class="col-md-4 offset-4 mt-5">
@@ -66,4 +65,4 @@
         </div>
     </div>
  
-@endsection
+</x-authlayout>

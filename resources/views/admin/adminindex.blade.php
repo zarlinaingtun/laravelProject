@@ -1,4 +1,3 @@
-@extends("layouts.adminlayout")
-@section("content")
+<x-adminlayout>
 <h1>Welcome From Admin Page</h1>
-@endsection
+</x-adminlayout>

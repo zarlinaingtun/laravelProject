@@ -1,5 +1,4 @@
-@extends('layouts.pagelayout')
-@section('content')
+<x-pagelayout>
 @if(Session('success'))
 <div class="alert alert-success">
     {{Session('success')}}
@@ -45,4 +44,4 @@
 
     
 
-@endsection
+</x-pagelayout>

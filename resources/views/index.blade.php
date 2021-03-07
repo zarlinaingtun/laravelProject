@@ -1,5 +1,6 @@
-@extends("layouts.pagelayout")
-@section('content')
+{{-- @extends("layouts.pagelayout")
+@section('content') --}}
+<x-pagelayout>
 {{-- <h1>{{auth()->user()->name}}</h1> --}}
 <!-- background image -->
     <header></header>
@@ -34,8 +35,8 @@
         </div>
     </div>
 
-
-@endsection
+</x-pagelayout>
+{{-- @endsection --}}
 </body>
 </html>
 
