@@ -7,7 +7,7 @@
 @csrf 
 {{-- title --}}
     <label for="">Title</label>    
-    <input type="text" name="title"  id="defaultLoginFormTitle" class="form-control mb-4" value={{$update_data->title}}>
+    <input type="text" name="title"  id="defaultLoginFormTitle" class="form-control mb-4" value="{{$update_data->title}}">
   
 {{-- image --}}
     <label for="defaultLoginFormPhoto">Photo</label>

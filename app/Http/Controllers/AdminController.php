@@ -17,7 +17,7 @@ class AdminController extends Controller
 
     }
     function contact_messages(){
-        $messages=ContactMessage::all();
+        $messages=ContactMessage::latest()->get();
         return view("admin.contact_messages",["messages"=>$messages]);
     }
 }

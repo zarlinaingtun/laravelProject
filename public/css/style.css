@@ -1,6 +1,6 @@
 header{
     height: 400px;
-    background-image: url('../images/lamp.jpg');
+    background-image: linear-gradient(rgb(35, 189, 43),blue),url('../images/lamp.jpg');
     background-position: center;
     background-size: cover;
     

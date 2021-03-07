@@ -9,26 +9,36 @@
         </div>
         <div class="col-md-6">
             <!-- form -->
-        <form class="text-center" style="color: #757575;" action="#!">
+        <form class="text-center" style="color: #757575;" action="{{route('post_contact_message')}}" method="post">
+        @csrf
          <h5 class="pink-text text-center py-4">
          <strong><u>Contact Us</u></strong>
          </h5>
         <!-- Username -->
         <div class="md-form">
-          <input type="text" id="materialLoginFormusername" class="form-control">
+          <input type="text" name="username" id="materialLoginFormusername" class="form-control">
           <label for="materialLoginFormusername">Username</label>
+          @error('username')
+          <p class="text-danger">{{$message}}</p>
+          @enderror
         </div>
   
-        <!-- Email -->
+        <!-- Email -->+
         <div class="md-form">
-          <input type="email" id="materialLoginFormemail" class="form-control">
+          <input type="email" name="email" id="materialLoginFormemail" class="form-control">
           <label for="materialLoginFormemail">Email</label>
+          @error('email')
+          <p class="text-danger">{{$message}}</p>
+          @enderror
         </div>
 
         <!-- Message -->
         <div class="md-form">
-          <textarea id="materialLoginFormMessage" cols="30" rows="10" class="form-control"></textarea>
+          <textarea name="message" id="materialLoginFormMessage" cols="30" rows="10" class="form-control"></textarea>
           <label for="materialLoginFormMessage">Your Message</label>
+          @error('message')
+          <p class="text-danger">{{$message}}</p>
+          @enderror
         </div>
   
         <!-- Button -->
