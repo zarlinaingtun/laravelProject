@@ -32,4 +32,14 @@ class ContactUsController extends Controller
             return back()->withErrors($validation);
         }
     }
+
+    //delete contactsms by id
+    function deleteMessage($id){
+        //get deletedata from database by id
+        $deleteData=ContactMessage::find($id);//connect with contact_messages_table using model
+        
+        //delete that data
+        $deleteData->delete();
+        return back()->with("message","Deleted Message of User- $deleteData->username");
+    }
 }

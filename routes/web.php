@@ -33,6 +33,8 @@ Route::middleware('auth')->group(function(){
 
     //contact
     Route::post('/user/contactUs',[ContactUsController::class,"post_contact_message"])->name('post_contact_message');//post user feedback to admin
+    Route::get('/admin/contact_messages/{id}',[ContactUsController::class,"deleteMessage"])->name('deleteMessage');//admin is delete contactsms by id
+    
     Route::post('/user/userProfile',[AuthController::class,"post_userProfile"])->name("post_userProfile");
     
     //admin

@@ -55,7 +55,7 @@
 <script>
 @if(Session('message'))
 let message="{{Session('message')}}";
-toastr.info("message");
+toastr.info(message);
 @endif
 </script>
 </body>

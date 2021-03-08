@@ -19,7 +19,7 @@
       <td>{{$message->email}}</td>
       <td>{{$message->messages}}</td>
       <td><button class="btn btn-sm btn-success">Update</button></td>
-      <td><button class="btn btn-sm btn-danger">Delete</button></td>
+      <td><a  href="{{route('deleteMessage',$message->id)}}" class="btn btn-sm btn-danger">Delete</a></td>
     </tr> 
   @endforeach
  
