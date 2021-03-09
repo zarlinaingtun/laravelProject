@@ -42,4 +42,25 @@ class ContactUsController extends Controller
         $deleteData->delete();
         return back()->with("message","Deleted Message of User- $deleteData->username");
     }
+    //call editmessage page form by id
+    function editMessage($id){
+        //get updatedata by id from db
+        $updateData=ContactMessage::find($id);
+        return view("admin.editmessage",["updateData"=>$updateData]);
+    }
+
+    //update message by id
+    function updateMessage($id){
+        //get updatedata by id from db
+        $updateData=ContactMessage::find($id);
+        //override that data
+        $updateData->username=request('username');
+        $updateData->email=request('email');
+        $updateData->messages=request('message');
+        //update that data
+        $updateData->update();
+        //return back
+        return back()->with('message',"Updated contactsms.");
+
+    }
 }

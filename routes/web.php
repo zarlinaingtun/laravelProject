@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
+use App\Models\ContactMessage;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth')->group(function(){
     //page
     Route::get('/',[PageController::class,'index'])->name("home");
-    Route::get('/user/createPost',[PageController::class,"createPost"])->name("createPost");//create our post
+    Route::get('/user/createPost',[PageController::class,"createPost"])->name("createPost");//call createpost page
     Route::get('/posts/{id}',[PageController::class,"seemorePostById"])->name("seemorePostById");//for Seemore post page(show post by id)
     Route::get('/posts/edit/{id}',[PageController::class,"editPost"])->name("editPost");//edit post page by id
     Route::get('/user/userProfile',[PageController::class,"userProfile"])->name("userProfile");//our profile
@@ -33,8 +34,10 @@ Route::middleware('auth')->group(function(){
 
     //contact
     Route::post('/user/contactUs',[ContactUsController::class,"post_contact_message"])->name('post_contact_message');//post user feedback to admin
-    Route::get('/admin/contact_messages/{id}',[ContactUsController::class,"deleteMessage"])->name('deleteMessage');//admin is delete contactsms by id
-    
+    Route::get('/admin/contact_messages/delete/{id}',[ContactUsController::class,"deleteMessage"])->name('deleteMessage');//admin is delete contactsms by id
+    Route::get('/admin/contact_messages/edit/{id}',[ContactUsController::class,"editMessage"])->name('editMessage');//call edit message form by id
+    Route::post('/admin/contact_messages/update/{id}',[ContactUsController::class,"updateMessage"])->name('updateMessage');//admin is update contactsms by id
+
     Route::post('/user/userProfile',[AuthController::class,"post_userProfile"])->name("post_userProfile");
     
     //admin
