@@ -51,7 +51,13 @@ class ContactUsController extends Controller
 
     //update message by id
     function updateMessage($id){
-        //get updatedata by id from db
+        $validation=request()->validate([
+            "username"=>"required",
+            "email"=>"required",
+            "message"=>"required",
+        ]);
+        if($validation){
+            //get updatedata by id from db
         $updateData=ContactMessage::find($id);
         //override that data
         $updateData->username=request('username');
@@ -61,6 +67,11 @@ class ContactUsController extends Controller
         $updateData->update();
         //return back
         return back()->with('message',"Updated contactsms.");
+        }
+        else{
+            return back()->withErrors($validation);
+        }
+        
 
     }
 }
