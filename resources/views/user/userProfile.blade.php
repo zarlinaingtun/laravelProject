@@ -28,7 +28,7 @@
 
         <label for="photo">Photo</label>
         <input type="file" name="image" id="photo" class="form-control mb-4">
-        <img src={{asset('images/profiles/'.auth()->user()->image)}} alt="propic" class="my-2" width="300px" height="250px"/><br>
+        <img src="{{asset('images/profiles/'.auth()->user()->image)}}" alt="propic" class="my-2" width="300px" height="250px"/><br>
     
         <label for="oldpassword">Old Password</label>
         <input type="password" name="old_password" id="oldpassword" class="form-control mb-4">
