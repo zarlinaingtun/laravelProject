@@ -40,11 +40,14 @@ Route::middleware('auth')->group(function(){
 
     Route::post('/user/userProfile',[AuthController::class,"post_userProfile"])->name("post_userProfile");
     
-    //admin
+    //admin&manage_premium_users
     Route::get('/admin/index',[AdminController::class,"index"])->name("admin.home");//call admin home page
     Route::get('/admin/manage_premium_users',[AdminController::class,"manage_premium_users"])->name("admin.manage_premium_users");//call manage_premium_users page
     Route::get('/admin/manage_premium_users/delete/{id}',[AdminController::class,"deleteUser"])->name("deleteUser");//admin is delete user by id
-    Route::get('/admin/contact_messages',[AdminController::class,"contact_messages"])->name("admin.contact_messages");
+    Route::get('/admin/manage_premium_users/edit/{id}',[AdminController::class,"editUser"])->name("editUser");//admin is call editUser blade
+    Route::post('/admin/manage_premium_users/update/{id}',[AdminController::class,"updateUser"])->name('updateUser');//admin is update userdata by id
+
+    Route::get('/admin/contact_messages',[AdminController::class,"contact_messages"])->name("admin.contact_messages");//call contactmessages blade
     //logout
     Route::get('/logout',[AuthController::class,"logout"])->name("logout");
 });

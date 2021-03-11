@@ -36,4 +36,37 @@ class AdminController extends Controller
         return back()->with('message',"Deleted User:$deleteUser->name");
 
     }
+    
+    //call editUser blade by id
+    function editUser($id){
+        //get user data by id
+        $editUser=User::find($id);
+        return view('admin.edituser',["editUser"=>$editUser]);
+    }
+
+     //admin is update userdata by id
+    function updateUser($id){
+        //validation
+        $validation=request()->validate([
+            "name"=>"required",
+            "email"=>"required",
+            "isAdmin"=>"required",
+            "isPremium"=>"required",
+        ]);
+        if($validation){
+            //grap that user data from db by id
+            $updateUser=User::find($id);
+            //override that data
+            $updateUser->name=request('name');
+            $updateUser->email=request('email');
+            $updateUser->isAdmin=request('isAdmin');
+            $updateUser->isPremium=request('isPremium');
+            //update that data
+            $updateUser->update();
+            return back()->with('message',"Userdata updated");
+        }
+        else{
+            return back()->withErrors($validation);
+        }
+    }
 }

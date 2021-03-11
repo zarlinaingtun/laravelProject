@@ -21,7 +21,7 @@
       <td>{{$user->email}}</td>
       <td><b>{{$user->isAdmin=='0' ? "FALSE":"TRUE" }}</b></td>
       <td><b>{{$user->isPremium=='0' ? "FALSE":"TRUE"}}<b></td>
-      <td><button class="btn btn-sm btn-success">Update</button></td>
+      <td><a href="{{route('editUser',$user->id)}}" class="btn btn-sm btn-success">Update</a></td>
       <td><a href="{{route('deleteUser',$user->id)}}" class="btn btn-sm btn-danger">Delete</a></td>
     </tr>
     @endforeach

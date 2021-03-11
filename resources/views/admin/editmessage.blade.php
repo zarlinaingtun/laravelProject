@@ -32,7 +32,7 @@
           @enderror
         </div>
   
-        <!-- Button -->
+        <!-- Button -->m
         <button class="btn btn-rounded btn-block my-4 waves-effect z-depth-0 pink white-text" type="submit">Update</button>
       </form>
 </x-adminlayout>
