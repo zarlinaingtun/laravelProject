@@ -15,9 +15,15 @@
       <li class="nav-item">
         <a class="nav-link" href="{{route('createPost')}}">Create post</a>
       </li>
+
+      {{-- @if(auth()->user()->isAdmin=="1") --}}
+      @can('admin')
       <li class="nav-item">
         <a class="nav-link" href="{{route('admin.home')}}">Admin Control</a>
       </li>
+      @endcan
+      {{-- @endif --}}
+
          <li class="nav-item">
         <a class="nav-link" href="{{route('contactUs')}}">Contact Us</a>
       </li>
