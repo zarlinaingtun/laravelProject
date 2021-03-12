@@ -25,7 +25,7 @@
     <div class="card-body">
   
       <!-- Title -->
-      <h4 class="card-title">{{$post->title}}</h4>
+      <h4 class="card-title">{{$post->title}}</h4><p>(Posted By {{$post->user->name}})</p>
       <!-- Button -->
       <a href="{{route("seemorePostById",$post->id)}}" class="btn white-text pink">See more</a>
     </div>

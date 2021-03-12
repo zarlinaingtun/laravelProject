@@ -11,8 +11,23 @@ class PageController extends Controller
 {
     //index
     function index() {
+        //get all post in db
         $posts=Post::latest()->get();//id_20-id_1(revert select data from database)
+        //return page
         return view('index',["posts"=>$posts]);
+
+       
+  //one to one(belongsTo())
+  //$post=Post::find(3);
+  //dd($post->user->toArray());
+
+ //one to many(hasMany())
+ // $user=User::find(3);
+ // dd($user->myposts->toArray());  
+
+        //one to one(belongsTo())
+        //one to many(hasMany())
+        //many to many
     }
 
     //post

@@ -1,5 +1,5 @@
 <!--Navbar -->
-<nav class="mb-1 navbar navbar-expand-lg navbar-dark pink lighten-1 sticky-top">
+<nav class=" navbar navbar-expand-lg navbar-dark pink lighten-1 sticky-top">
   <a class="navbar-brand" href="{{route('home')}}">Social App</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
     aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">

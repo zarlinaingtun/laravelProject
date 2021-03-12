@@ -21,8 +21,8 @@ class CreatePostsTable extends Migration
             // $table->foreign('user_id')->references('id')->on('users');
             
             //second method
-            $table->foreignId('user_id')->constrained();//connect to users table's id
-            
+            $table->foreignId('user_id')->constrained();//connect to (users) table's id
+            // $table->foreignId('author')->constrained();//authors
             $table->string('title');
             $table->string('image');
             $table->longText('content');
