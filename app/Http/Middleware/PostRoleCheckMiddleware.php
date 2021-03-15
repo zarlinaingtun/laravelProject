@@ -28,7 +28,7 @@ class PostRoleCheckMiddleware
         //3.check author_id==currentuserId
 
         if(auth()->user()->isAdmin=='1' || auth()->user()->isPremium=='1' || auth()->user()->id==$authorId){
-            return $next($request);//delete,edit,update post
+            return $next($request);//delete,edit,update (post)
         }
         else{
             return redirect()->route('home')->with('errors',"You are not admin or premium user");
