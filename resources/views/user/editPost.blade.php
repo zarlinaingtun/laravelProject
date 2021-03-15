@@ -11,7 +11,7 @@
 {{-- image --}}
     <label for="defaultLoginFormPhoto">Photo</label>
     <input type="file" name="image" id="defaultLoginFormPhoto" class="form-control mb-4">
-    <img src={{asset('images/postPhotos/'.$update_data->image)}} alt="postphoto" class="my-2" width="300px" height="250px"/><br>
+    <img src="{{asset('images/postPhotos/'.$update_data->image)}}" alt="postphoto" class="my-2" width="300px" height="250px"/><br>
   
 {{-- Content --}}
     <label for="">Content</label>

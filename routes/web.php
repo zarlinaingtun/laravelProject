@@ -23,26 +23,28 @@ Route::middleware('auth')->group(function(){
     Route::get('/',[PageController::class,'index'])->name("home");
     Route::get('/user/createPost',[PageController::class,"createPost"])->name("createPost");//call createpost page
     Route::get('/posts/{id}',[PageController::class,"seemorePostById"])->name("seemorePostById");//for Seemore post page(show post by id)
-    Route::get('/posts/edit/{id}',[PageController::class,"editPost"])->name("editPost");//edit post page by id
     Route::get('/user/userProfile',[PageController::class,"userProfile"])->name("userProfile");//our profile
     Route::get('/user/contactUs',[PageController::class,"contactUs"])->name("contactUs");//contact page
    
-    //posts
+    //post
     Route::post('/user/createPost',[PostController::class,"post"])->name("post");//post our post into home page 
-    Route::get('/posts/delete/{id}',[PostController::class,"deletePost"])->name("deletePost");//delete post by id
-    Route::post('/posts/update/{id}',[PostController::class,"updatePost"])->name("updatePost");//update post by id
-
     //contact
     Route::post('/user/contactUs',[ContactUsController::class,"post_contact_message"])->name('post_contact_message');//post user feedback to admin
-  
-    
+    //post_userprofile
     Route::post('/user/userProfile',[AuthController::class,"post_userProfile"])->name("post_userProfile");
      //logout
     Route::get('/logout',[AuthController::class,"logout"])->name("logout");
     
-    
-    Route::middleware("admin")->group(function(){
-        //admin
+    //posts_middleware(role permission)
+    Route::middleware('premiumUser')->group(function(){
+        Route::get('/posts/edit/{id}',[PageController::class,"editPost"])->name("editPost");//edit post page by id
+        Route::get('/posts/delete/{id}',[PostController::class,"deletePost"])->name("deletePost");//delete post by id
+        Route::post('/posts/update/{id}',[PostController::class,"updatePost"])->name("updatePost");//update post by id
+    });
+   
+   
+    //admin_middleware
+    Route::middleware("admin")->group(function(){    
         //contact(admin)
     Route::get('/admin/contact_messages/delete/{id}',[ContactUsController::class,"deleteMessage"])->name('deleteMessage');//admin is delete contactsms by id
     Route::get('/admin/contact_messages/edit/{id}',[ContactUsController::class,"editMessage"])->name('editMessage');//call edit message form by id
@@ -67,6 +69,10 @@ Route::middleware('notloginuser')->group(function(){
     Route::post('/register',[AuthController::class,"post_register"])->name("post_register");
  
 });
+
+// admin(he can do everything)
+// premium_users(he can delete and update other posts)
+// normal users(he can delete and update only his post)
 
 
 
