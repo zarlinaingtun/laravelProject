@@ -33,6 +33,7 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         Gate::define("premiumAdminPostowner",function(User $user,$id){
+             // $user is same as auth()->user()
             //(OR gate)
             //premium user
             //admin

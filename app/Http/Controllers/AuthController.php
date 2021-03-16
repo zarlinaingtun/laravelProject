@@ -56,7 +56,8 @@ class AuthController extends Controller
             //associated array 
             "username"=>"required",
             "email"=>"required",
-            "password"=>"required || min:8",
+            "password"=>"required || min:8 || confirmed",
+            "password_confirmation"=>"required",
             "image"=>"required",
         ]);
        
@@ -72,6 +73,7 @@ class AuthController extends Controller
             
             //save to database
             $username=$validation['username'];
+            
             $user=new User();
             $password=$validation['password'];
             $user->name=$validation['username'];
@@ -86,7 +88,8 @@ class AuthController extends Controller
              }
         }
         else//validation false//$validation=null \
-        {         
+        {   
+             
             return back()->withErrors($validation);
         }
     }
