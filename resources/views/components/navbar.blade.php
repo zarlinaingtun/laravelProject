@@ -7,24 +7,24 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
+      <li class="nav-item {{request()->path()=="/" ? 'active':''}}">
         <a class="nav-link" href="{{route('home')}}">Home
           <span class="sr-only">(current)</span>
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item {{request()->path()=='user/createPost' ? 'active':''}}" >
         <a class="nav-link" href="{{route('createPost')}}">Create post</a>
       </li>
 
       {{-- @if(auth()->user()->isAdmin=="1") --}}
       @can('admin')
-      <li class="nav-item">
+      <li class="nav-item {{request()->path()=='admin/index' ? 'active':''}}">
         <a class="nav-link" href="{{route('admin.home')}}">Admin Control</a>
       </li>
       @endcan
       {{-- @endif --}}
 
-         <li class="nav-item">
+         <li class="nav-item {{request()->path()=='user/contactUs' ? 'active':''}}">
         <a class="nav-link" href="{{route('contactUs')}}">Contact Us</a>
       </li>
       
