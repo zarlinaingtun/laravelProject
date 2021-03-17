@@ -12,7 +12,11 @@ class PageController extends Controller
     //index
     function index() {
         //get all post in db
-        $posts=Post::latest()->get();//id_20-id_1(revert select data from database)
+        
+        // $posts=Post::latest()->get();//id_20-id_1(revert select data from database)
+        $posts=Post::latest()->paginate(10);//pagination our posts 10 by 1
+        // $post=Post::paginate(10);
+        
         //return page
         return view('index',["posts"=>$posts]);
 

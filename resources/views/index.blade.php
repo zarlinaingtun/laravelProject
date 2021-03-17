@@ -31,12 +31,14 @@
     </div>
   </div>
 </div> 
-     @endforeach       
+     @endforeach  
+
+     {{-- Pagination used default Tailwind Css need to change bootstrap css --}}
+   
         </div>
     </div>
-
+  {{$posts->links()}}
 </x-pagelayout>
 {{-- @endsection --}}
-</body>
-</html>
+
 
