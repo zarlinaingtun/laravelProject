@@ -16,6 +16,7 @@
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css">
 {{-- custom css --}}
 <link href={{asset('css/style.css')}} rel="stylesheet" type="text/css" >
+
 </head>
 
 <body>
